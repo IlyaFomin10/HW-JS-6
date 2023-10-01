@@ -24,22 +24,23 @@ console.log(Math.min(...arr));
 
 function createCounter() {
   let currentCount = 0;
-  function counter() {
-    return currentCount;
-  }
-  counter.increment = function (value) {
-    return ++currentCount;
+  return {
+    increment: function () {
+      return ++currentCount;
+    },
+    decrement: function () {
+      return --currentCount;
+    },
+    show: function () {
+      return currentCount;
+    },
   };
-  counter.decrement = function () {
-    return --currentCount;
-  };
-  return counter;
 }
 
 const myCount = createCounter();
-console.log("Счетчик равен - " + myCount());
+console.log("Счетчик равен - " + myCount.show());
 console.log(myCount.increment());
 console.log(myCount.increment());
 console.log(myCount.increment());
 console.log(myCount.decrement());
-console.log(myCount());
+console.log("Счетчик равен - " + myCount.show());
