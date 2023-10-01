@@ -10,3 +10,21 @@
 */
 
 // Task1
+arr = [1, 5, 7, 9];
+console.log(Math.min(...arr));
+
+function createCounter() {
+  let count = { increment: 0, decrement: 0 };
+  return function () {
+    count.increment++;
+    count.decrement--;
+    return count;
+  };
+}
+
+const myCount = createCounter();
+console.log(myCount());
+console.log(myCount());
+console.log(myCount());
+console.log(myCount());
+console.log(myCount());
