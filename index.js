@@ -13,18 +13,33 @@
 arr = [1, 5, 7, 9];
 console.log(Math.min(...arr));
 
+// function createCounter() {
+//   let count = { increment: 0, decrement: 0 };
+//   return function () {
+//     count.increment++;
+//     count.decrement--;
+//     return count;
+//   };
+// }
+
 function createCounter() {
-  let count = { increment: 0, decrement: 0 };
-  return function () {
-    count.increment++;
-    count.decrement--;
-    return count;
+  let currentCount = 0;
+  function counter() {
+    return currentCount;
+  }
+  counter.increment = function (value) {
+    return ++currentCount;
   };
+  counter.decrement = function () {
+    return --currentCount;
+  };
+  return counter;
 }
 
 const myCount = createCounter();
-console.log(myCount());
-console.log(myCount());
-console.log(myCount());
-console.log(myCount());
+console.log("Счетчик равен - " + myCount());
+console.log(myCount.increment());
+console.log(myCount.increment());
+console.log(myCount.increment());
+console.log(myCount.decrement());
 console.log(myCount());
